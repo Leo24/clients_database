@@ -15,12 +15,18 @@ class CreateVisitsTable extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('odometer_reading');
+            $table->text('errors_petrol')->nullable();
+            $table->text('errors_gas')->nullable();
+            $table->text('work_petrol')->nullable();
+            $table->text('work_gas')->nullable();
+            $table->text('notes')->nullable();
+            $table->integer('car_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('car_id')->references('id')->on('cars');
+
         });
-
-
-
-
     }
 
     /**

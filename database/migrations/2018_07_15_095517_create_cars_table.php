@@ -21,6 +21,7 @@ class CreateCarsTable extends Migration
             $table->string('state_number');
             $table->string('ecu_name')->nullable();
             $table->boolean('chiptuned');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
