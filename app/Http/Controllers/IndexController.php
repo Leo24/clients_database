@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cars;
+use App\Models\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -25,11 +25,11 @@ class IndexController extends Controller
     {
 
 
-        $cars = Cars::get();
+        $cars = Car::get();
 
         $foo = false;
         return view('cars.index', [
-            'data' => Cars::all()
+            'data' => Car::all()
         ]);
     }
 }

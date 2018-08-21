@@ -8,9 +8,13 @@
                 <th>#ID</th>
                 <th>Показания одометра</th>
                 <th>Ошибки бензин</th>
-                <th class="col-md-3">Ошибки газ</th>
-                <th>Выполненные работы по бензину</th>
-                <th>Выполненные работы по газу</th>
+                <th>Ошибки газ</th>
+                <th><p>Выполненные работы</p>
+                    <p>Бензин</p>
+                </th>
+                <th><p>Выполненные работы</p>
+                    <p>Газ</p>
+                </th>
                 <th>Заметки</th>
                 <th>Автомобиль</th>
             </tr>
@@ -26,7 +30,10 @@
                     <td>{{ $item->work_petrol}}</td>
                     <td>{{ $item->work_gas}}</td>
                     <td>{{ $item->notes}}</td>
-                    <td>{{ $item->car_id}}</td>
+                    <td>
+                        <p>{{ $item->car->make}}&nbsp{{ $item->car->model}}</p>
+                        <p>{{ $item->car->state_number}}</p>
+                    </td>
                     {{--<td class="table-button">--}}
                         {{--<a class="btn btn-info" href="{{ route('admin.article.edit', $item->id) }}" title="{{ trans('article.edit.name') }}">--}}
                             {{--<i class="fa fa-paste"></i>--}}

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Юридичне бюро') }}</title>
+    <title>{{ config('app.name', 'База автомобилей') }}</title>
 
     <!-- Vendor styles -->
     <link rel="stylesheet" href="/vendor/fontawesome/css/font-awesome.css" />
@@ -42,7 +42,7 @@
     <div class="color-line">
     </div>
     <div id="logo" class="light-version">
-            <span>{{ trans('admin.title') }}</span>
+{{--            <span>{{ trans('admin.title') }}</span>--}}
     </div>
     <nav role="navigation">
         <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>

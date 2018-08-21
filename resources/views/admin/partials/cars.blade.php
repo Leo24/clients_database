@@ -12,6 +12,7 @@
                 <th>Гос. номер</th>
                 <th>Блок управления</th>
                 <th>Чипованная(да/нет)</th>
+                <th>Визиты</th>
             </tr>
             </thead>
             <tbody>
@@ -26,6 +27,7 @@
                     <td>{{ $item->state_number}}</td>
                     <td>{{ $item->ecu_name}}</td>
                     <td>{{ $item->chiptuned}}</td>
+                    <td>{{ $item->visits}}</td>
                     {{--<td class="table-button">--}}
                         {{--<a class="btn btn-info" href="{{ route('admin.article.edit', $item->id) }}" title="{{ trans('article.edit.name') }}">--}}
                             {{--<i class="fa fa-paste"></i>--}}

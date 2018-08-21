@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Visits;
+use App\Models\Visit;
 use Illuminate\Http\Request;
 
 class VisitsController extends Controller
@@ -15,7 +15,7 @@ class VisitsController extends Controller
     public function index()
     {
         return view('visits.index', [
-            'visits' => Visits::all(),
+            'visits' => Visit::all(),
         ]);
     }
 
