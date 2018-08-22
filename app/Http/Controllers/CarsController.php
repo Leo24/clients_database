@@ -24,9 +24,35 @@ class CarsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function create(Request $request, array $params = null)
     {
-        //
+        $formData = $request->all();
+
+        if ($request->isMethod('POST')) {
+
+//            $validator = $this->validator($request->all());
+//
+//            if ($validator->fails()) {
+//                // add custom error message to message bag
+//                $validator->getMessageBag()->add('error_msg', 'Неверно заполнена форма!');
+//                $validator->getMessageBag()->add('city_id', 'City does not exist in selected country');
+//                return redirect('/panel/vacancies/create')
+//                    ->withErrors($validator)
+//                    ->withInput($request->all());
+//            }
+
+
+
+
+            // create new vacancy with form data
+            $car = Car::create(($formData));
+
+            return redirect()->route('cars.index')->with('success', 'Автомобиль успешно создан.');
+        }
+        
+        $car = [];
+        return view('cars.create', $car);
     }
 
     /**

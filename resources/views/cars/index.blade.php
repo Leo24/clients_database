@@ -13,23 +13,18 @@
 
                             </div>
                             <div class="col-md-2 m-b">
-
-                                <a href="
-{{--{{ route('admin.article.create') }}--}}
-
-                                        " class="btn w-xs btn-success">
+                                <a href="{{ route('car.create') }}" class="btn w-xs btn-success">
                                     <i class="fa fa-plus"></i>
                                     <span class="bold">Добавить автомобиль</span>
                                 </a>
-
                             </div>
                         </div>
 
-                        {{--@if (session('success'))--}}
-                        {{--<div class="alert alert-success">--}}
-                        {{--{{ session('success') }}--}}
-                        {{--</div>--}}
-                        {{--@endif--}}
+                        @if (session('success'))
+                        <div class="alert alert-success">
+                        {{ session('success') }}
+                        </div>
+                        @endif
 
                         <div class="table-responsive">
 
@@ -89,7 +84,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <?php xdebug_break(); ?>
                         @include('admin.partials.cars', ['data' => $cars])
 
                     </div>

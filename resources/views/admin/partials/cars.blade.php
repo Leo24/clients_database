@@ -39,6 +39,24 @@
                             {{--</button>--}}
                         {{--</form>--}}
                     {{--</td>--}}
+
+                    <td class="table-button">
+                        <a class="btn btn-info" href="
+{{--{{$user->isAdmin() ? route('admin.vacancies.show', ['id' => $item->id]): route('vacancies.show', ['id' => $item->id])}}--}}
+                                " title="Просмотр">
+                            <i class="fa fa-file-text"></i>
+                        </a>
+
+                        <a class="btn btn-primary
+{{--{{($user->id == $item->author_id && $status !== 'is_archive') ? '' : 'disabled' }}--}}
+                                " href="
+{{--{{($user->id == $item->author_id && $status !== 'is_archive') ? route('vacancies.edit', ['id' => $item->id]) : '' }}--}}
+                                " title="Редактирование">
+                            <i class="fa fa-edit"></i>
+                        </a>
+
+                    </td>
+
                 </tr>
             @empty
                 <tr>No data</tr>

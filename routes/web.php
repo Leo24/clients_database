@@ -19,5 +19,8 @@ Route::get('services', 'ServiceController@index')->name('admin.service.index');
 
 
 Route::get('/cars', 'CarsController@index')->name('cars.index');
+Route::any('/cars/create', 'CarsController@create')->name('car.create');
+
 Route::get('/visits', 'VisitsController@index')->name('visits.index');
+
 Route::get('/search', 'CarsController@search')->name('cars.search');
