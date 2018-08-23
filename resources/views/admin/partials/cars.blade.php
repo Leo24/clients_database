@@ -47,11 +47,7 @@
                             <i class="fa fa-file-text"></i>
                         </a>
 
-                        <a class="btn btn-primary
-{{--{{($user->id == $item->author_id && $status !== 'is_archive') ? '' : 'disabled' }}--}}
-                                " href="
-{{--{{($user->id == $item->author_id && $status !== 'is_archive') ? route('vacancies.edit', ['id' => $item->id]) : '' }}--}}
-                                " title="Редактирование">
+                        <a class="btn btn-primary" href="{{route('car.edit', ['id' => $item->id])}}" title="Редактирование">
                             <i class="fa fa-edit"></i>
                         </a>
 

@@ -50,7 +50,7 @@ class CarsController extends Controller
 
             return redirect()->route('cars.index')->with('success', 'Автомобиль успешно создан.');
         }
-        
+
         $car = [];
         return view('cars.create', $car);
     }
@@ -77,16 +77,55 @@ class CarsController extends Controller
         //
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\name  $name
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @param Request $request
+     * @return mixed
      */
-    public function edit(name $name)
+    public function edit($id, Request $request)
     {
-        //
+        if ($request->isMethod('POST')) {
+            $formData = $request->all();
+
+//            $validator = $this->validator($request->all());
+
+
+//            if ($validator->fails() || $formData['country_id'] != $countryId) {
+//                // add custom error message to message bag
+//                $validator->getMessageBag()->add('error_msg', 'Неверно заполнена форма!');
+//                $validator->getMessageBag()->add('city_id', 'City does not exist in selected country');
+//
+//                return back()->withErrors($validator);
+//            }
+
+            $car= Car::find($id);
+            // update new vacancy with form data
+            $car->update(array_filter($formData));
+
+            return redirect()->route('cars.index')->with('success', 'Данные автомобиля отредактированы.');
+        }
+
+        $data = Car::find($id);
+
+        return view('cars.edit', [
+            'data'               => $data,
+//            'user'               => $this->signedIn,
+//            'company_id'         => $this->signedIn->company->id,
+//            'countries'          => $this->country->getAllCountries(),
+//            'currencies'         => Currency::where('is_enabled', true)->get(),
+//            'documents'          => Document::where('is_enabled', true)->get(),
+//            'exp'                => Experience::where('is_enabled', true)->get(),
+//            'scopes'             => Scope::where('is_enabled', true)->get(),
+//            'scopeCategories'    => $this->scopeCategories->getAllEnabled(),
+//            'markers'            => Marker::where('is_enabled', true)->get(),
+//            'checked_markers'    => $data->getVacancyCheckedMarkers(),
+//            'selected_documents' => $data->getSelectedDocuments(),
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.
