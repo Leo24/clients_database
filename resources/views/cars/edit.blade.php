@@ -24,7 +24,7 @@
                     <div class="panel-body">
 
                         <h2 class="m-b-lg">Редактирование автомобиля</h2>
-                        <form class="form-horizontal add_job_form" method="post" action="{{ route('car.edit', [ 'id' => $data->id ]) }}" enctype="multipart/form-data">
+                        <form id="car-edit-form" class="form-horizontal add_job_form" method="post" action="{{ route('car.edit', [ 'id' => $data->id ]) }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             {{--<input id="company" name="company_id" value="{{ $company_id }}" hidden>--}}
@@ -148,12 +148,11 @@
                                 <div class="col-sm-12">
                                     <div class="row text-center">
                                         <button class="btn btn-success" type="submit">Отредактировать</button>
+                                        <button class="btn btn-primary alert-delete-item" type="submit" name="delete">Удалить</button>
                                     </div>
                                 </div>
-
                             </div>
                         </form>
-
                     </div>
                 </div>
 
@@ -161,6 +160,11 @@
         </div>
 
     </div>
+
+    <script>
+        //set car delete url
+        var carDeleteUrl = '{{route('car.delete', [ 'id' => $data->id ]) }}';
+    </script>
 
 @include('admin.partials.js_remove_script')
 
@@ -212,7 +216,5 @@
         });
 
     </script>
-
-    @include('admin.partials.js_remove_script')
 
 @endsection

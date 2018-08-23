@@ -126,6 +126,36 @@ class CarsController extends Controller
         ]);
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param $id
+     * @param Request $request
+     * @return mixed
+     */
+    public function delete($id, Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            $formData = $request->all();
+//            $validator = $this->validator($request->all());
+
+//            if ($validator->fails() || $formData['country_id'] != $countryId) {
+//                // add custom error message to message bag
+//                $validator->getMessageBag()->add('error_msg', 'Неверно заполнена форма!');
+//                $validator->getMessageBag()->add('city_id', 'City does not exist in selected country');
+//
+//                return back()->withErrors($validator);
+//            }
+
+            $car= Car::find($id);
+            // update new vacancy with form data
+            $car->delete();
+
+            return redirect()->route('cars.index')->with('success', 'Данные автомобиля удалены.');
+        }
+        return redirect()->route('cars.index');
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -149,4 +179,8 @@ class CarsController extends Controller
     {
         //
     }
+
+
+
+
 }

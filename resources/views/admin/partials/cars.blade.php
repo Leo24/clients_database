@@ -12,11 +12,11 @@
                 <th>Гос. номер</th>
                 <th>Блок управления</th>
                 <th>Чипованная(да/нет)</th>
-                <th>Визиты</th>
+                <th>Прошлый визит</th>
+                <th>Редактирование</th>
             </tr>
             </thead>
             <tbody>
-            <?php xdebug_break(); ?>
 
             @forelse ($data as $item)
                 <tr>
@@ -27,7 +27,15 @@
                     <td>{{ $item->state_number}}</td>
                     <td>{{ $item->ecu_name}}</td>
                     <td>{{ $item->chiptuned}}</td>
-                    <td>{{ $item->visits}}</td>
+                    <td>
+                        @if(isset($item->visits))
+                            @foreach($item->visits as $k => $visit)
+                                    @if($k == (count($item->visits)-1))
+                                        <p><span>{{$visit->created_at}}</span></p>
+                                    @endif
+                            @endforeach
+                        @endif
+                    </td>
                     {{--<td class="table-button">--}}
                         {{--<a class="btn btn-info" href="{{ route('admin.article.edit', $item->id) }}" title="{{ trans('article.edit.name') }}">--}}
                             {{--<i class="fa fa-paste"></i>--}}
