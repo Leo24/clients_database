@@ -11,7 +11,15 @@
                             <div class="col-md-10 m-b">
                                 <h2 class="margin0">Список визитов</h2>
                             </div>
+                            <div class="col-md-2 m-b">
+                                <a href="{{ route('visit.create') }}" class="btn w-xs btn-success">
+                                    <i class="fa fa-plus"></i>
+                                    <span class="bold">Создать визит</span>
+                                </a>
+                            </div>
                         </div>
+
+
 
                         {{--@if (session('success'))--}}
                         {{--<div class="alert alert-success">--}}

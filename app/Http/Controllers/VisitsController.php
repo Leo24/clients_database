@@ -24,9 +24,31 @@ class VisitsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, array $params = null)
     {
-        //
+        $formData = $request->all();
+
+        if ($request->isMethod('POST')) {
+
+//            $validator = $this->validator($request->all());
+//
+//            if ($validator->fails()) {
+//                // add custom error message to message bag
+//                $validator->getMessageBag()->add('error_msg', 'Неверно заполнена форма!');
+//                $validator->getMessageBag()->add('city_id', 'City does not exist in selected country');
+//                return redirect('/panel/vacancies/create')
+//                    ->withErrors($validator)
+//                    ->withInput($request->all());
+//            }
+
+            // create new vacancy with form data
+            $car = Visit::create(($formData));
+
+            return redirect()->route('visits.index')->with('success', 'Визит успешно создан.');
+        }
+
+        $car = [];
+        return view('visits.create', $car);
     }
 
     /**
