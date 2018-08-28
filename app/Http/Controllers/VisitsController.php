@@ -79,9 +79,35 @@ class VisitsController extends Controller
      * @param  \App\name  $name
      * @return \Illuminate\Http\Response
      */
-    public function edit(name $name)
+    public function edit($id, Request $request)
     {
-        //
+        if ($request->isMethod('POST')) {
+            $formData = $request->all();
+
+//            $validator = $this->validator($request->all());
+
+
+//            if ($validator->fails() || $formData['country_id'] != $countryId) {
+//                // add custom error message to message bag
+//                $validator->getMessageBag()->add('error_msg', 'Неверно заполнена форма!');
+//                $validator->getMessageBag()->add('city_id', 'City does not exist in selected country');
+//
+//                return back()->withErrors($validator);
+//            }
+
+            $visit = Visit::find($id);
+            // update new vacancy with form data
+
+            $visit->update(array_filter($formData));
+
+            return redirect()->route('visits.index')->with('success', 'Визит отредактирован.');
+        }
+
+        $data = Visit::find($id);
+
+        return view('visits.edit', [
+            'data'               => $data
+        ]);
     }
 
     /**

@@ -18,6 +18,7 @@
                     <p>Газ</p>
                 </th>
                 <th>Заметки</th>
+                <th>Редактирование</th>
             </tr>
             </thead>
             <tbody>
@@ -38,6 +39,18 @@
                     <td>{{ $item->work_petrol}}</td>
                     <td>{{ $item->work_gas}}</td>
                     <td>{{ $item->notes}}</td>
+                    <td class="table-button">
+                        {{--<a class="btn btn-info" href="--}}
+{{--{{$user->isAdmin() ? route('admin.vacancies.show', ['id' => $item->id]): route('vacancies.show', ['id' => $item->id])}}--}}
+                                {{--" title="Просмотр">--}}
+                            {{--<i class="fa fa-file-text"></i>--}}
+                        {{--</a>--}}
+
+                        <a class="btn btn-primary" href="{{route('visit.edit', ['id' => $item->id])}}" title="Редактирование">
+                            <i class="fa fa-edit"></i>
+                        </a>
+
+                    </td>
 
                     {{--<td class="table-button">--}}
                         {{--<a class="btn btn-info" href="{{ route('admin.article.edit', $item->id) }}" title="{{ trans('article.edit.name') }}">--}}

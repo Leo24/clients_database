@@ -111,18 +111,7 @@ class CarsController extends Controller
         $data = Car::find($id);
 
         return view('cars.edit', [
-            'data'               => $data,
-//            'user'               => $this->signedIn,
-//            'company_id'         => $this->signedIn->company->id,
-//            'countries'          => $this->country->getAllCountries(),
-//            'currencies'         => Currency::where('is_enabled', true)->get(),
-//            'documents'          => Document::where('is_enabled', true)->get(),
-//            'exp'                => Experience::where('is_enabled', true)->get(),
-//            'scopes'             => Scope::where('is_enabled', true)->get(),
-//            'scopeCategories'    => $this->scopeCategories->getAllEnabled(),
-//            'markers'            => Marker::where('is_enabled', true)->get(),
-//            'checked_markers'    => $data->getVacancyCheckedMarkers(),
-//            'selected_documents' => $data->getSelectedDocuments(),
+            'data'               => $data
         ]);
     }
 

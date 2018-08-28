@@ -20,12 +20,11 @@
                         </div>
 
 
-
-                        {{--@if (session('success'))--}}
-                        {{--<div class="alert alert-success">--}}
-                        {{--{{ session('success') }}--}}
-                        {{--</div>--}}
-                        {{--@endif--}}
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
 
                         @include('admin.partials.visits', ['data' => $visits])
 
@@ -47,7 +46,7 @@
                     url: $(this).attr('action'),
                     type: 'POST',
                     data: $(this).serialize(),
-                    success: function(result) {
+                    success: function (result) {
                         $('.table-articles').html(result);
                     }
                 });
@@ -62,7 +61,7 @@
                     url: self.closest('form').attr('action'),
                     type: 'POST',
                     data: self.closest('form').serialize(),
-                    success: function(result) {
+                    success: function (result) {
                         $('.table').html(result);
                     }
                 });

@@ -25,6 +25,7 @@ Route::any('/cars/{car}/delete', 'CarsController@delete')->name('car.delete');
 
 Route::get('/visits', 'VisitsController@index')->name('visits.index');
 Route::any('/visit/create', 'VisitsController@create')->name('visit.create');
+Route::any('/visit/{visit}/edit', 'VisitsController@edit')->name('visit.edit');
 
 
 
