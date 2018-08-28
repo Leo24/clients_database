@@ -36,8 +36,9 @@
                                     <div class="row">
                                         <label class="control-label col-md-2 m-b text-align-left" for="state_number">Автомобиль</label>
                                         <div class="col-md-4 {{ $errors->has('state_number') ? 'has-error' : '' }}">
-                                            <input id="state_number" type="text" class="form-control" name="state_number" value="{{ old('state_number') }}">
+                                            <input id="state_number" type="text" class="form-control" name="state_number" placeholder="Поиск по цифрам номерного знака">
                                             <input id="car_id" type="hidden" class="form-control" name="car_id" value="{{ old('car_id') }}">
+                                            <p id="car-info"></p>
 
                                             {{--@if ($errors->has('title'))--}}
                                                 {{--<span class="help-block">--}}
@@ -189,8 +190,3 @@
 
 @endsection
 
-@section('bottomScripts')
-
-    @include('admin.partials.js_remove_script')
-
-@endsection

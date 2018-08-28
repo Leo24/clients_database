@@ -29,4 +29,4 @@ Route::any('/visit/{visit}/edit', 'VisitsController@edit')->name('visit.edit');
 
 
 
-Route::get('/search', 'CarsController@search')->name('cars.search');
+Route::post('/search', 'CarsController@search')->name('cars.search');

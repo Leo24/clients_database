@@ -637,3 +637,11 @@ select#currency-code{
 .table.table-bordered .checked{
   background-color: #f9f9f9;
 }
+
+.control-label.text-align-left {
+  text-align: left;
+}
+
+span.red{
+  color: red;
+}

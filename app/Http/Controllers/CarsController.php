@@ -43,8 +43,6 @@ class CarsController extends Controller
 //            }
 
 
-
-
             // create new vacancy with form data
             $car = Car::create(($formData));
 
@@ -58,7 +56,7 @@ class CarsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -69,7 +67,7 @@ class CarsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\name  $name
+     * @param  \App\name $name
      * @return \Illuminate\Http\Response
      */
     public function show(name $name)
@@ -101,7 +99,7 @@ class CarsController extends Controller
 //                return back()->withErrors($validator);
 //            }
 
-            $car= Car::find($id);
+            $car = Car::find($id);
             // update new vacancy with form data
             $car->update(array_filter($formData));
 
@@ -111,7 +109,7 @@ class CarsController extends Controller
         $data = Car::find($id);
 
         return view('cars.edit', [
-            'data'               => $data
+            'data' => $data
         ]);
     }
 
@@ -136,7 +134,7 @@ class CarsController extends Controller
 //                return back()->withErrors($validator);
 //            }
 
-            $car= Car::find($id);
+            $car = Car::find($id);
             // update new vacancy with form data
             $car->delete();
 
@@ -149,8 +147,8 @@ class CarsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\name  $name
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\name $name
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, name $name)
@@ -161,7 +159,7 @@ class CarsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\name  $name
+     * @param  \App\name $name
      * @return \Illuminate\Http\Response
      */
     public function destroy(name $name)
@@ -169,7 +167,13 @@ class CarsController extends Controller
         //
     }
 
-
+    public function search(Request $request)
+    {
+        $formData = $request->all();
+        $searchParam = $request->get('searchParam');
+        $car = Car::where('state_number', 'LIKE', '%' . $searchParam . '%')->get();
+        return response()->json($car);
+    }
 
 
 }
