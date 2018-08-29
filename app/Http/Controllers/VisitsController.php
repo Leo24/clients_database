@@ -28,7 +28,7 @@ class VisitsController extends Controller
     public function create(Request $request, array $params = null)
     {
         $formData = $request->all();
-
+        $carId = $request->get('carId');
         if ($request->isMethod('POST')) {
 
 //            $validator = $this->validator($request->all());
@@ -47,9 +47,8 @@ class VisitsController extends Controller
 
             return redirect()->route('visits.index')->with('success', 'Визит успешно создан.');
         }
-
-        $car = [];
-        return view('visits.create', $car);
+        $car = Car::find($carId);
+        return view('visits.create', ['car' => $car]);
     }
 
     /**

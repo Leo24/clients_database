@@ -26,7 +26,7 @@
                         </div>
                         @endif
 
-                        <form class="form-horizontal add_job_form" method="post" action="#" enctype="multipart/form-data">
+                        <div class="form-horizontal add_job_form" method="post" action="#" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-lg-12 ">
@@ -35,12 +35,12 @@
                                         <div class="col-md-4 {{ $errors->has('state_number') ? 'has-error' : '' }}">
                                             <input id="state_number_search" type="text" class="form-control" name="state_number" placeholder="Поиск по цифрам номерного знака">
                                             <input id="car_id" type="hidden" class="form-control" name="car_id" value="{{(isset($car)) ? $car->id : ''}}">
-                                            <p id="car-info"></p>
                                         </div>
+                                        <p id="car-info" class="col-md-4"></p>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
 
 
                         {{--<div class="table-responsive">--}}
@@ -111,5 +111,5 @@
     </div>
 
     @include('admin.partials.js_remove_script')
-    
+
 @endsection

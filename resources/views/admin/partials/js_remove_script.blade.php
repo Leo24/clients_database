@@ -101,7 +101,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function (data) {
-                        if(data.length > 0){
+                        if(data[0].length > 0){
                             var car = data[0][0],
                             editUrl = '{{route('car.edit', ['id' => 0])}}';
                             editUrl = editUrl.replace(0, car.id);

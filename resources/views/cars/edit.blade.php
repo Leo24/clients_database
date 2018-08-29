@@ -149,8 +149,13 @@
                                     <div class="row text-center">
                                         <button class="btn btn-success" type="submit">Отредактировать</button>
                                         <button class="btn btn-primary alert-delete-item" type="submit" name="delete">Удалить</button>
+                                            <a href="{{ route('visit.create', [ 'carId' => $data->id ]) }}" class="btn w-xs btn-success">
+                                                <i class="fa fa-plus"></i>
+                                                <span class="bold">Создать визит</span>
+                                            </a>
                                     </div>
                                 </div>
+
                             </div>
                         </form>
                     </div>

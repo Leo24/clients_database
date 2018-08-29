@@ -36,10 +36,12 @@
                                     <div class="row">
                                         <label class="control-label col-md-2 m-b text-align-left" for="state_number">Автомобиль</label>
                                         <div class="col-md-4 {{ $errors->has('state_number') ? 'has-error' : '' }}">
-                                            <input id="state_number" type="text" class="form-control" name="state_number" placeholder="Поиск по цифрам номерного знака">
-                                            <input id="car_id" type="hidden" class="form-control" name="car_id" value="{{ old('car_id') }}">
-                                            <p id="car-info"></p>
-
+                                            <input id="state_number" type="text" class="form-control" name="state_number" value="{{ (!empty($car)) ? $car->state_number : '' }}" placeholder="Поиск по цифрам номерного знака">
+                                            <input id="car_id" type="hidden" class="form-control" name="car_id" value="{{ (!empty($car)) ? $car->id: '' }}">
+                                            <p id="car-info">
+                                                @if(!empty($car))
+                                                    {{$car->make}}&nbsp{{$car->model}}</p>
+                                                @endif
                                             {{--@if ($errors->has('title'))--}}
                                                 {{--<span class="help-block">--}}
                                                     {{--<strong>{{ $errors->first('title') }}</strong>--}}

@@ -645,3 +645,7 @@ select#currency-code{
 span.red{
   color: red;
 }
+
+.table-responsive{
+  margin-top: 2%;
+}
