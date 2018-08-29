@@ -49,7 +49,7 @@
                                             {{--@endif--}}
 
                                         </div>
-
+                                        <div id="add-car-button" class="col-md-2 m-b"></div>
                                     </div>
 
                                     <div class="hr-line-dashed"></div>

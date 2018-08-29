@@ -71,6 +71,10 @@
                             $('#car-info').parent('div').addClass('has-error');
                             $('#car-info').append('<span class="red">' +'Автомобиль не найден'+
                                 '</span>');
+                            $('#add-car-button').append('<a href=\"{{ route('car.create') }}\" class="btn w-xs btn-success">'+
+                                '<i class="fa fa-plus"></i>'+
+                                '<span class="bold">Добавить автомобиль</span>'+
+                            '</a>');
                             $('#car_id').val('');
                         }
 
