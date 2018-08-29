@@ -24,7 +24,7 @@
                     <div class="panel-body">
 
                         <h2 class="m-b-lg">Создать новый автомобиль</h2>
-                        <form class="form-horizontal add_job_form" method="post" action="{{route('car.create')}}" enctype="multipart/form-data">
+                        <form id="create-car" class="form-horizontal add_job_form" method="post" action="{{route('car.create')}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             {{--<input id="company" name="company_id" value="{{ $company_id }}" hidden>--}}
@@ -163,11 +163,5 @@
     </div>
 
 @include('admin.partials.js_remove_script')
-
-@endsection
-
-@section('bottomScripts')
-
-    @include('admin.partials.js_remove_script')
 
 @endsection

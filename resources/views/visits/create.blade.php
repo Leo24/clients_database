@@ -24,7 +24,7 @@
                     <div class="panel-body">
 
                         <h2 class="m-b-lg">Создать визит</h2>
-                        <form class="form-horizontal add_job_form" method="post" action="{{route('visit.create')}}" enctype="multipart/form-data">
+                        <form id="create-visit" class="form-horizontal add_job_form" method="post" action="{{route('visit.create')}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             {{--<input id="company" name="company_id" value="{{ $company_id }}" hidden>--}}
