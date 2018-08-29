@@ -169,10 +169,9 @@ class CarsController extends Controller
 
     public function search(Request $request)
     {
-        $formData = $request->all();
         $searchParam = $request->get('searchParam');
         $car = Car::where('state_number', 'LIKE', '%' . $searchParam . '%')->get();
-        return response()->json($car);
+        return response()->json([$car]);
     }
 
 

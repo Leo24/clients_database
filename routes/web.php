@@ -22,11 +22,13 @@ Route::get('/cars', 'CarsController@index')->name('cars.index');
 Route::any('/cars/create', 'CarsController@create')->name('car.create');
 Route::any('/cars/{car}/edit', 'CarsController@edit')->name('car.edit');
 Route::any('/cars/{car}/delete', 'CarsController@delete')->name('car.delete');
+Route::any('/search', 'CarsController@search')->name('cars.search');
+
+
 
 Route::get('/visits', 'VisitsController@index')->name('visits.index');
 Route::any('/visit/create', 'VisitsController@create')->name('visit.create');
 Route::any('/visit/{visit}/edit', 'VisitsController@edit')->name('visit.edit');
+Route::any('/visits/car/search', 'VisitsController@carSearch')->name('visits.car.search');
 
 
-
-Route::post('/search', 'CarsController@search')->name('cars.search');

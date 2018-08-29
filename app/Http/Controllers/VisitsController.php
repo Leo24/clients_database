@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Visit;
+use App\Models\Car;
 use Illuminate\Http\Request;
 
 class VisitsController extends Controller
@@ -131,5 +132,13 @@ class VisitsController extends Controller
     public function destroy(name $name)
     {
         //
+    }
+
+
+    public function carSearch(Request $request)
+    {
+        $searchParam = $request->get('searchParam');
+        $car = Car::where('state_number', 'LIKE', '%' . $searchParam . '%')->get();
+        return response()->json($car);
     }
 }
