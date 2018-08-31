@@ -80,8 +80,8 @@
                                     <div class="row">
                                         <label class="control-label col-md-2 m-b text-align-left " for="errors_petrol">Ошибки бензин</label>
                                         <div class="col-md-4 {{ $errors->has('errors_petrol') ? 'has-error' : '' }}">
-                                            <input id="errors_petrol" type="text" class="form-control" name="errors_petrol" value="{{ old('errors_petrol') }}">
-
+                                            {{--<input id="errors_petrol" type="text" class="form-control" name="errors_petrol" value="{{ old('errors_petrol') }}">--}}
+                                            <textarea name="errors_petrol" id="errors_petrol" class="form-control" cols="30" rows="10">{{ old('errors_petrol') }}</textarea>
                                             {{--@if ($errors->has('title'))--}}
                                             {{--<span class="help-block">--}}
                                             {{--<strong>{{ $errors->first('title') }}</strong>--}}
@@ -101,8 +101,8 @@
                                     <div class="row">
                                         <label class="control-label col-md-2 m-b text-align-left " for="errors_gas">Ошибки газ</label>
                                         <div class="col-md-4 {{ $errors->has('errors_gas') ? 'has-error' : '' }}">
-                                            <input id="errors_gas" type="text" class="form-control" name="errors_gas" value="{{ old('errors_gas') }}">
-
+                                            {{--<input id="errors_gas" type="text" class="form-control" name="errors_gas" value="{{ old('errors_gas') }}">--}}
+                                            <textarea name="errors_gas" id="errors_gas" class="form-control" cols="30" rows="10">{{ old('errors_gas') }}</textarea>
                                             {{--@if ($errors->has('title'))--}}
                                             {{--<span class="help-block">--}}
                                             {{--<strong>{{ $errors->first('title') }}</strong>--}}
@@ -121,7 +121,8 @@
                                     <div class="row">
                                         <label class="control-label col-md-2 m-b text-align-left " for="work_petrol">Работы по бензину</label>
                                         <div class="col-md-4 {{ $errors->has('work_petrol') ? 'has-error' : '' }}">
-                                            <input id="work_petrol" type="text" class="form-control" name="work_petrol" value="{{ old('work_petrol') }}">
+                                            {{--<input id="work_petrol" type="text" class="form-control" name="work_petrol" value="{{ old('work_petrol') }}">--}}
+                                            <textarea name="work_petrol" class="form-control"  id="work_petrol" cols="30" rows="10">{{ old('work_petrol') }}</textarea>
 
                                             {{--@if ($errors->has('title'))--}}
                                             {{--<span class="help-block">--}}
@@ -139,7 +140,8 @@
                                     <div class="row">
                                         <label class="control-label col-md-2 m-b text-align-left " for="work_gas">Работы по газу</label>
                                         <div class="col-md-4 {{ $errors->has('work_gas') ? 'has-error' : '' }}">
-                                            <input id="work_gas" type="text" class="form-control" name="work_gas" value="{{ old('work_gas') }}">
+                                            {{--<input id="work_gas" type="text" class="form-control" name="work_gas" value="{{ old('work_gas') }}">--}}
+                                            <textarea name="work_gas" class="form-control"  id="work_gas" cols="30" rows="10">{{ old('work_gas') }}</textarea>
 
                                             {{--@if ($errors->has('title'))--}}
                                             {{--<span class="help-block">--}}
@@ -157,7 +159,8 @@
                                     <div class="row">
                                         <label class="control-label col-md-2 m-b text-align-left " for="notes">Заметки</label>
                                         <div class="col-md-4 {{ $errors->has('notes') ? 'has-error' : '' }}">
-                                            <input id="notes" type="text" class="form-control" name="notes" value="{{ old('notes') }}">
+                                            {{--<input id="notes" type="text" class="form-control" name="notes" value="{{ old('notes') }}">--}}
+                                            <textarea name="notes" class="form-control"  id="notes" cols="30" rows="10">{{ old('notes') }}</textarea>
 
                                             {{--@if ($errors->has('title'))--}}
                                             {{--<span class="help-block">--}}
