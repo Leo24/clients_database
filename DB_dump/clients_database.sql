@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Авг 20 2018 г., 15:40
+-- Время создания: Авг 31 2018 г., 08:29
 -- Версия сервера: 10.1.34-MariaDB
 -- Версия PHP: 7.2.7
 
@@ -46,9 +46,9 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`id`, `make`, `model`, `year`, `state_number`, `ecu_name`, `chiptuned`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Mazda', 'CX-5', 2005, 'CA5987CT', NULL, 0, '2018-07-24 21:00:00', '2018-07-19 21:00:00', '2018-07-23 21:00:00'),
-(2, 'Honda', 'CR-V', 2008, 'CA9677CT', NULL, 0, '2018-07-24 21:00:00', '2018-07-19 21:00:00', '2018-07-23 21:00:00'),
-(3, 'Toyota', 'Tundra', 2005, 'CA8649CT', NULL, 1, '2018-07-24 21:00:00', '2018-07-19 21:00:00', '2018-07-23 21:00:00');
+(12, 'ГАЗ', 'Ель', 2006, 'СА1773АI', 'Микас 7.1', 1, NULL, '2018-08-23 05:56:40', '2018-08-23 05:56:40'),
+(13, 'Daewoo', 'Lanos', 2004, 'CA1078CA', NULL, 0, NULL, '2018-08-30 10:10:57', '2018-08-30 10:10:57'),
+(14, 'Ваз', 'Приора', 2011, 'CA4234CM', 'M73', 0, NULL, '2018-08-30 10:35:31', '2018-08-30 10:35:31');
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,9 @@ CREATE TABLE `visits` (
 --
 
 INSERT INTO `visits` (`id`, `odometer_reading`, `errors_petrol`, `errors_gas`, `work_petrol`, `work_gas`, `notes`, `car_id`, `created_at`, `updated_at`) VALUES
-(1, 123986, '103,102,201', 'Low voltage', 'Change petrol filter', 'Turning in gas program', 'Some test text.', 1, '2018-07-25 21:00:00', '2018-07-09 21:00:00');
+(5, 708900, NULL, 'Нет массы на газовых клапанах пропан.\r\nЗагрязнён фильтр в клапане.\r\nПлохой контакт плюсовой клеммы не метановом редукторе.', NULL, 'Замена фильтра паровой фазы, пропан.\r\nЗамена проводки и клемм.', NULL, 12, '2018-08-23 09:00:00', NULL),
+(6, 323593, '-', 'Жалобы на неустойчивый холостой ход', 'Замена свечей, чистка РХХ', 'ТО редуктора, замена фильтра жидкой фазы, устраниение подсоса воздуха по газ., смесителю, переделка \"массы\" ГБО, замена резинки антихлопка', 'В редукторе установлен неоригинальный клапан во второй ступени(толщина меньше чем в ремкомплекте)', 13, '2018-08-30 10:13:10', '2018-08-30 10:16:42'),
+(8, 84640, '-', 'Нет газовой форсунки 2, низкое напряжение, снимался аккумулятор, слетела газовая карта', 'Закрепили корпус воздушного фильтра', 'Подрезали крышку, чтобы не сбивала фишку форсунки.', '', 14, '2018-08-30 10:37:48', '2018-08-31 03:26:24');
 
 --
 -- Индексы сохранённых таблиц
@@ -117,7 +119,7 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `visits`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `car_id` (`car_id`);
+  ADD KEY `visits_ibfk_1` (`car_id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -127,7 +129,7 @@ ALTER TABLE `visits`
 -- AUTO_INCREMENT для таблицы `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
@@ -139,7 +141,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT для таблицы `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -149,7 +151,7 @@ ALTER TABLE `visits`
 -- Ограничения внешнего ключа таблицы `visits`
 --
 ALTER TABLE `visits`
-  ADD CONSTRAINT `visits_ibfk_1` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `visits_ibfk_1` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
