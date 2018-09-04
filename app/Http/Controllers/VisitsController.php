@@ -43,9 +43,9 @@ class VisitsController extends Controller
 //            }
 
             // create new vacancy with form data
-            $car = Visit::create(($formData));
+            $visit = Visit::create(($formData));
 
-            return redirect()->route('visits.index')->with('success', 'Визит успешно создан.');
+            return redirect()->route('visit.edit', ['id'=>$visit->id])->with('success', 'Визит успешно создан.');
         }
         $car = Car::find($carId);
         return view('visits.create', ['car' => $car]);

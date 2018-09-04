@@ -46,7 +46,7 @@ class CarsController extends Controller
             // create new vacancy with form data
             $car = Car::create(($formData));
 
-            return redirect()->route('cars.index')->with('success', 'Автомобиль успешно создан.');
+            return redirect()->route('car.edit', ['id'=>$car->id])->with('success', 'Автомобиль успешно создан.');
         }
 
         $car = [];
