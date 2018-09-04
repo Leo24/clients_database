@@ -103,7 +103,7 @@ class CarsController extends Controller
             // update new vacancy with form data
             $car->update(array_filter($formData));
 
-            return redirect()->route('cars.index')->with('success', 'Данные автомобиля отредактированы.');
+            return redirect()->route('car.edit', ['id'=>$car->id])->with('success', 'Данные автомобиля отредактированы.');
         }
 
         $data = Car::find($id);

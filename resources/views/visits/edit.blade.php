@@ -171,7 +171,11 @@
 
                                 <div class="col-sm-12">
                                     <div class="row text-center">
-                                        <button class="btn btn-success" type="submit">Отредактировать</button>
+                                        <button class="btn btn-success" type="submit">Сохранить</button>
+                                        <a href="{{ route('visits.index') }}" class="btn w-xs btn-primary">
+                                            {{--<i class="fa fa-plus"></i>--}}
+                                            <span class="bold">Вернуться к визитам</span>
+                                        </a>
                                     </div>
                                 </div>
 

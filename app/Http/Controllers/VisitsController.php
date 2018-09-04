@@ -100,7 +100,7 @@ class VisitsController extends Controller
 
             $visit->update(array_filter($formData));
 
-            return redirect()->route('visits.index')->with('success', 'Визит отредактирован.');
+            return redirect()->route('visit.edit', ['id' => $visit->id])->with('success', 'Визит отредактирован.');
         }
 
         $data = Visit::find($id);

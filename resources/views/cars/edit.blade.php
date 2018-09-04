@@ -147,7 +147,11 @@
 
                                 <div class="col-sm-12">
                                     <div class="row text-center">
-                                        <button class="btn btn-success" type="submit">Отредактировать</button>
+                                        <button class="btn btn-success" type="submit">Сохранить</button>
+                                        <a href="{{ route('cars.index') }}" class="btn w-xs btn-info">
+                                            {{--<i class="fa fa-plus"></i>--}}
+                                            <span class="bold">К списку авто</span>
+                                        </a>
                                         <button class="btn btn-primary alert-delete-item" type="submit" name="delete">Удалить</button>
                                             <a href="{{ route('visit.create', [ 'carId' => $data->id ]) }}" class="btn w-xs btn-success">
                                                 <i class="fa fa-plus"></i>
