@@ -174,5 +174,12 @@ class CarsController extends Controller
         return response()->json([$car]);
     }
 
+    public function carVisits($id, Request $request)
+    {
+        return view('cars.visits', [
+            'car' => Car::find($id),
+        ]);
+    }
+
 
 }

@@ -23,6 +23,7 @@ Route::any('/cars/create', 'CarsController@create')->name('car.create');
 Route::any('/cars/{car}/edit', 'CarsController@edit')->name('car.edit');
 Route::any('/cars/{car}/delete', 'CarsController@delete')->name('car.delete');
 Route::any('/search', 'CarsController@search')->name('cars.search');
+Route::any('/car/{car}/visits', 'CarsController@carVisits')->name('car.visits');
 
 
 

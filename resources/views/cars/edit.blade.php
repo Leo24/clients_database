@@ -157,6 +157,9 @@
                                                 <i class="fa fa-plus"></i>
                                                 <span class="bold">Создать визит</span>
                                             </a>
+                                        <a href="{{ route('car.visits', [ 'carId' => $data->id ]) }}" class="btn w-xs btn-info">
+                                            <span class="bold">Посмотреть визиты</span>
+                                        </a>
                                     </div>
                                 </div>
 
