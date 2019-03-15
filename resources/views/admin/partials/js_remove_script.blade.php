@@ -106,13 +106,17 @@
                     },
                     success: function (data) {
                         if(data[0].length > 0){
-                            var car = data[0][0],
-                            editUrl = '{{route('car.edit', ['id' => 0])}}';
-                            editUrl = editUrl.replace(0, car.id);
-                            $('#car-info span').remove();
-                            $('#car-info').parent('div').removeClass('has-error');
-                            $('#car-info').append('<a href=\"'+ editUrl +'\">' +car.make+' '+car.model+' '+car.state_number+'</a>');
-                            $('#car_id').val(car.id);
+                            var dataLength = data[0].length;
+                            for(i=0; i <= dataLength; i++){
+                                data[0][i];
+                                var car = data[0][i],
+                                    editUrl = '<?php echo e(route('car.edit', ['id' => 0])); ?>';
+                                editUrl = editUrl.replace(0, car.id);
+                                $('#car-info span').remove();
+                                $('#car-info').parent('div').removeClass('has-error');
+                                $('#car-info').append('<a href=\"'+ editUrl +'\">' +car.make+' '+car.model+' '+car.state_number+'</a><p></p>');
+                                $('#car_id').val(car.id);
+                            }
                         }else{
                             $('#car-info span').remove();
                             $('#car-info').parent('div').addClass('has-error');
